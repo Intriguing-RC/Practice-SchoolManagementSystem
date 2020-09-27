@@ -1,5 +1,9 @@
 package me.intriguing;
 
+import me.intriguing.rolemanagers.AdministrationManager;
+import me.intriguing.rolemanagers.DistrictAdministrationManager;
+import me.intriguing.rolemanagers.StudentManager;
+import me.intriguing.rolemanagers.TeacherManager;
 import me.intriguing.util.TextMenu;
 
 import java.util.Scanner;
@@ -8,12 +12,30 @@ public class SchoolManager {
 
 
     public static void main(String[] args) {
-        int response = new TextMenu("Welcome to the HAUSD School Program.\n\nLogging in as...")
+        int response = new TextMenu("Welcome to the HAUSD School Program.\n\nManaging for...")
                                     .add("Student")
                                     .add("Teacher")
                                     .add("Administration")
                                     .add("District Administration")
                                     .run();
+
+        switch(response) {
+            case 0:
+                StudentManager.init();
+            case 1:
+                TeacherManager.init();
+                break;
+            case 2:
+                AdministrationManager.init();
+                break;
+            case 3:
+                DistrictAdministrationManager.init();
+                break;
+            default:
+                System.out.println("You didn't provide any questions.");
+                break;
+
+        }
 
         System.out.println(response);
     }

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class TextMenu {
 
-    public static Scanner s = new Scanner(System.in);
+    private static Scanner s = new Scanner(System.in);
     private String title;
     private List<String> questions;
 
